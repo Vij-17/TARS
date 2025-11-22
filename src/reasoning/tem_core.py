@@ -47,6 +47,8 @@ class TolmanEichenbaumMachine(nn.Module):
             num_reasoning_steps
         )
         
+        self.output_projection = nn.Linear(factor_dim * num_factors, input_dim)
+
     def forward(self, entities, known_relations=None, query=None):
         """
         Args:
@@ -80,6 +82,9 @@ class TolmanEichenbaumMachine(nn.Module):
             )
             return answer_scores, reasoning_trace
         
+        # Project back to input dim
+        updated_embeddings = self.output_projection(updated_embeddings)
+
         return updated_embeddings, inferred_relations
     
     def extract_relations(self, entities, known_relations=None):
