@@ -43,7 +43,7 @@ class TARS(nn.Module):
         
         # Core identification
         self.name = "TARS"
-        self.version = "1.0"
+        self.version = "1.1"
         
         # Token embedding
         self.token_embed = nn.Embedding(vocab_size, dim)
