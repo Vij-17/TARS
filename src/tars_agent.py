@@ -6,7 +6,7 @@ import torch.nn.functional as F
 
 from .core import QueryUnderstanding
 from .reasoning import TolmanEichenbaumMachine, RecursiveReasoningCore
-from .memory import WorkingMemory, EpisodicMemory
+from .memory import WorkingMemory, EpisodicMemory, HopeMemory
 from .tools import ToolUseController
 from .agentic import AgentController
 from .personality import TARSPersonality
@@ -67,12 +67,12 @@ class TARS(nn.Module):
         self.tool_controller = ToolUseController(dim, num_tools=5)
         
         # Memory systems
-        self.working_memory = WorkingMemory(
+        # Using HopeMemory (Continuum Memory System) instead of simple WorkingMemory
+        self.working_memory = HopeMemory(
             dim=dim,
-            chunk_size=16,
-            heads=8,
-            momentum=True,
-            batch_size=32
+            levels=3,
+            base_chunk_size=4,
+            heads=8
         )
         
         self.episodic_memory = EpisodicMemory(dim, memory_capacity=10000)
