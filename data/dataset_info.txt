@@ -1,0 +1,12 @@
+TARS Training Datasets
+============================================================
+
+SQUAD:
+  train: 87599 examples
+  validation: 10570 examples
+
+ROPES:
+  train: 10924 examples
+  test: 1710 examples
+  validation: 1688 examples
+

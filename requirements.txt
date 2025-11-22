@@ -1,0 +1,32 @@
+# TARS - Thinking Autonomous Reasoning System
+# Core dependencies
+
+# Deep Learning
+torch>=2.0.0
+numpy>=1.24.0
+einops>=0.7.0
+
+# Graph Neural Networks (for TEM)
+torch-geometric>=2.3.0
+
+# Neural Memory
+titans-pytorch>=0.1.0
+
+# Tools - External Knowledge
+sentence-transformers>=2.2.0  # For RAG embeddings
+faiss-cpu>=1.7.4               # Vector database
+requests>=2.31.0               # Web search API
+
+# Training & Logging
+tqdm>=4.65.0
+wandb>=0.15.0                  # Optional: for experiment tracking
+tensorboard>=2.13.0
+
+# Optional but recommended
+transformers>=4.30.0           # For tokenization
+accelerate>=0.20.0             # For efficient training
+
+# Development (optional)
+pytest>=7.3.0
+black>=23.3.0
+flake8>=6.0.0
